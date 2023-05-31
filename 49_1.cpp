@@ -18,12 +18,12 @@ public:
         for(int i = 0, j = 0; i < strs.size(); i++) {
             std::string tempstr = strs[i]; //присваиваем стрингу значение i-того стринга вектора strs[i], чтобы потом отсортировать без последствий
             sort(tempstr.begin(), tempstr.end()); //сортировка чаров этого стринга
-            if(mapp.find(tempstr) != mapp.end()) { // он по мапе ищет набор букв
-                ans[mapp[tempstr]].push_back(strs[i]); //в скобках ans находится итератор при значении стринга tempstr, туда 
+            if(mapp.find(tempstr) != mapp.end()) { // возвращает указатель набора букв, по последнему указателю проверяет, анаграмны ли слова
+                ans[mapp[tempstr]].push_back(strs[i]);
             }
-            else { //если удовлетворяет условию
-                mapp[tempstr] = j; //итератор добавляемого элемента под набор букв
-                ans[mapp[tempstr]].push_back(strs[i]); 
+            else { //если слова не совпали
+                mapp[tempstr] = j;
+                ans.push_back({strs[i]}); 
                 j++;
             }     
         }
