@@ -9,6 +9,8 @@ Output: [24,12,8,6]
 
 */
 
+//DONE
+
 #include <vector>
 #include <string>
 #include <iostream>
