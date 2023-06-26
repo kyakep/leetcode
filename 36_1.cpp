@@ -8,9 +8,14 @@ Note:
 A Sudoku board (partially filled) could be valid but is not necessarily solvable.
 Only the filled cells need to be validated according to the mentioned rules.*/
 
+#include <vector>
+#include <string>
+#include <iostream>
+
 class Solution {
 public:
-    bool isValidSudoku(vector<vector<char>>& board) {
+    bool isValidSudoku(std::vector<std::vector<char> >& board) {
         
-    }
+        return 0;
+    };
 };

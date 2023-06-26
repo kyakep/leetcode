@@ -14,40 +14,28 @@ Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefor
 
 class Solution {
 public:
-    int longestConsecutive(std::vector<int>& nums) {
+    std::vector<int> longestConsecutive(std::vector<int>& nums) {
         int count=1;
-        for (int i = 0; i < nums.size(); i++) {
-            for (int j = 0; j < nums.size()-1; j++){
-                if (nums[j]>=nums[j+1]){
-                    int temp = nums[j];
-                    nums[j] = nums[j+1];
-                    nums[j+1] = temp;
-                }
-            }
+        if (nums.size()==0){
+            count = 0;
         }
+        std::sort(nums.begin(), nums.end());
         for (int i = 0; i < nums.size(); i++) {
             if (nums[i+1]==nums[i]+1){
                 count++;
             }
-            else{
-                break;
-            }
+
         }
-        return count;
+        return nums;
     }
 };
 
-/*int main(){
+int main(){
     Solution s;
-    std::vector<int> test;
-    for (int i=4; i>=0; i--){
-        test.push_back(i);
-    }
-    test.push_back(10);
+    std::vector<int> test { 2,5,6,3,5};
     s.longestConsecutive(test);
     for (int i = 0; i < test.size(); i++){
         std::cout<<test[i];    
     }
-    std::cout<<s.longestConsecutive(test);
     
-}*/
+}
