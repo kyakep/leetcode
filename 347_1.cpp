@@ -5,6 +5,7 @@ You may return the answer in any order.
 
 #include <vector>
 #include <string>
+#include <queue>
 
 
 class Solution {
@@ -14,20 +15,11 @@ public:
         for (int i = 0; i < nums.size(); i++) {
             answer[nums[i]]++;
         }
-        for (int i = 0; i < answer.size()-1; i++) {
-            for (int j = 0; j < answer.size()-1; j++) {
-                if (answer[j]<answer[j+1]){
-                    int temp=answer[j];
-                    answer[j] = answer[j+1];
-                    answer[j+1] = temp;
-                }
-            }
-        }
+        std::priority_queue<std::pair<int,int> > pq;
         std::vector<int> answer_vec;
-        for (int i=0; i<k; i++)
-        {
-            answer_vec.push_back(answer[i]);
+        for (auto it = answer.begin(); it != answer.end(); it++){
+            pq.push_back(std::make_pair(it->second, it->first));
+            
         }
-        return answer_vec;
     }
 };
