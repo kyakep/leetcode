@@ -49,15 +49,16 @@ public:
     }
 };
 
-/*int main(){
+int main(){
     Solution s;
     std::vector<int> test;
+    test.push_back(-1);
     test.push_back(1);
-    test.push_back(2);
+    test.push_back(0);
+    test.push_back(-3);
     test.push_back(3);
-    test.push_back(4);
     std::vector<int> answer=s.productExceptSelf(test);
     for (int i=0; i<answer.size(); i++){
         std::cout<<answer[i]<<" ";
     }
-}*/
+}
