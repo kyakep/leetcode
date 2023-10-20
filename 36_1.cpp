@@ -28,8 +28,8 @@ class Solution {
 public:
     bool isValidSudoku(std::vector<std::vector<char> >& board) {
         std::vector<char> wh;
-        int raw = 0, board_length = board.size(), board_depth = board[0].size();
-        for (int i = 0; i < board.size(); i++) { //raw checking
+        int raw = 0, board_depth = board.size(), board_length = board[0].size();
+        for (int i = 0; i < board.size(); i++) {
             for (int j = 0; j < board[i].size(); j++){
                 if (board[i][j] !=  '.'){
                     wh.push_back(board[i][j]);
@@ -40,7 +40,7 @@ public:
             }
             wh.clear();
         }
-        for (int j = 0; j < board_length; j++){ //column checking
+        for (int j = 0; j < board_length; j++){
             while (raw<board_length){
                 if (board[raw][j] !=  '.'){
                     wh.push_back(board[raw][j]);
@@ -52,6 +52,25 @@ public:
             }
             raw=0;
             wh.clear();
+        }
+        for (int i = 0; i < board_length; i+=3){
+            std::cout<<"1"<<std::endl;
+            for (int j = 0; j < board_depth; j+=3){
+                std::cout<<"2"<<std::endl;
+                for (int si = i; si < i+3; si++){
+                    std::cout<<"3"<<std::endl;
+                    for (int sj = j; sj < j+3; sj++){
+                        std::cout<<"4"<<std::endl;
+                        if (board[si][sj] !=  '.'){
+                            wh.push_back(board[si][sj]);
+                        }             
+                    }
+                }
+                if (check(wh)==false) {
+                    return false;
+                }
+                wh.clear();
+            }
         }
         return true;
     };
