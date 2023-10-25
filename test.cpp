@@ -1,5 +1,8 @@
-#include "sqlite3.h"
-int sqlite3_open(
-  const char *filename,   /* Database filename (UTF-8) */
-  sqlite3 **ppDb          /* OUT: SQLite db handle */
-);
+#include <iostream>
+#include <string>
+
+int main(){
+  std::string test = "ABCDEF";
+  test.erase(test.begin(), test.begin());
+  std::cout << test << std::endl;
+}
